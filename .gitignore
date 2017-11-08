@@ -1,0 +1,3 @@
+*.suo
+/Source/NonFraud.Web/.vs/config/applicationhost.config
+*.user
