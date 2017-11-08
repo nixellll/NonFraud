@@ -1,0 +1,22 @@
+﻿<div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+
+        @if (Request.IsAuthenticated)
+        {
+            if (MvcApplication.profiles[0] == "Assistant" || MvcApplication.profiles[0] == "Administrator")
+            {
+                <li>@Html.ActionLink("Create Transaction", "Create", "Transaction")</li>
+            }
+
+            if (MvcApplication.profiles[0] == "Superintendent" || MvcApplication.profiles[0] == "Administrator")
+            {
+                <li>@Html.ActionLink("Set Fraud Transactions", "Index", "Transaction")</li>
+            }
+            if (MvcApplication.profiles[0] == "Manager" || MvcApplication.profiles[0] == "Administrator")
+            {
+                <li>@Html.ActionLink("Search Transactions", "Search", "Transaction")</li>
+            }
+        }
+    </ul>
+    @Html.Partial("_Login")
+</div>

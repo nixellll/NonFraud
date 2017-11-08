@@ -1,0 +1,23 @@
+﻿@model NonFraud.Service.Models.TransactionModel
+@using (Html.BeginForm("UpdateIsFraud", "Transaction"))
+{
+    <td>
+        <div class="checkbox">
+            @Html.EditorFor(modelItem => modelItem.IsFraud)
+            @Html.ValidationMessageFor(modelItem => modelItem.IsFraud, "", new { @class = "text-danger" })
+        </div>
+    </td>
+    @Html.HiddenFor(modelItem => modelItem.TransactionId)
+    @Html.HiddenFor(modelItem => modelItem.NameOrig)
+    @Html.HiddenFor(modelItem => modelItem.NameDest)
+    <td>
+        @Html.DisplayFor(modelItem => modelItem.IsFlagged)
+    </td>
+            <td>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-default" />
+                    </div>
+                </div>
+            </td>
+}

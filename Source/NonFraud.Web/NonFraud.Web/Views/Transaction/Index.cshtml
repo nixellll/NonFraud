@@ -1,0 +1,85 @@
+﻿@model IEnumerable<NonFraud.Service.Models.TransactionModel>
+
+<h2>Index</h2>
+
+@if (MvcApplication.profiles[0] == "Assistant" || MvcApplication.profiles[0] == "Administrator")
+{
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TransactionDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NameOrig)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OldBalanceOrig)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NewBalanceOrig)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NameDest)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OldBalanceDest)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NewBalanceDest)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsFraud)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsFlagged)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TransactionDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameOrig)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OldBalanceOrig)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NewBalanceOrig)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameDest)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OldBalanceDest)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NewBalanceDest)
+            </td>
+            @Html.Partial("_IsFraudEditor", item)
+            
+        </tr>
+        }
+
+    </table>
